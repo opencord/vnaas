@@ -1,0 +1,7 @@
+vnaas-synchronizer.py
+__init__.py
+model-deps
+manifest
+steps/sync_vnaaseline.py
+run-from-api.sh
+vnaas_synchronizer_config
