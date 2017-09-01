@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.tmp/
+.idea/
+.DS_Store
+src/.DS_Store
+typings/
+*.log
