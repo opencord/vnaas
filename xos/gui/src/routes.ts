@@ -25,6 +25,6 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $locationProvid
     .state('xos.vnaasgui', {
       url: 'vnaasgui',
       parent: 'xos',
-      component: 'engMap'
+      component: 'vnaasMap'
     });
 }

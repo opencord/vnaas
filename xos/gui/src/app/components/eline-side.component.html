@@ -7,7 +7,7 @@ you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
 http://www.apache.org/licenses/LICENSE-2.0
-
+xz
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,50 +15,54 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<div class = "elinepanel">
+<div class="elinepanel">
+  <div class="text-right">
+    <a href ng-click="vm.vng.elinePanel({}, vm.vng.eline, false)">
+      <i class="fa fa-remove" style="color:#fff;"></i>
+    </a>
+  </div>
   <h1>ELine Overview</h1>
-  <form ng-submit="vm.saveEline(vm.eng.eline)">
-    <div class="form-group" ng-hide="vm.eng.createMode">
+  <form ng-submit="vm.saveEline(vm.vng.eline)">
+    <div class="form-group" ng-hide="vm.vng.createMode">
       <label>ID</label><br/>
-      <p>{{vm.eng.eline.id}}</p>
+      <p>{{vm.vng.eline.id}}</p>
     </div>
     <div class="form-group">
       <label for="name">Name</label>
-      <input required class="form-control" id="name" type="text" ng-value="vm.eng.eline.name" ng-model="vm.eng.eline.name">
+      <input required class="form-control" id="name" type="text" ng-value="vm.vng.eline.name" ng-model="vm.vng.eline.name">
     </div>
-    <div class="form-group" ng-hide="vm.eng.createMode">
+    <div class="form-group" ng-hide="vm.vng.createMode">
       <label>Backend Status</label><br/>
-      <p>{{vm.eng.eline.backend_status}}</p>
+      <p>{{vm.vng.eline.backend_status}}</p>
     </div>
     <div class="form-group">
       <label for="cpi1">Connect point 1 ID</label>
-      <input required class="form-control" id="cpi1" type="text" ng-value="vm.eng.eline.connect_point_1_id" ng-model="vm.eng.eline.connect_point_1_id">
+      <input required class="form-control" id="cpi1" type="text" ng-value="vm.vng.eline.connect_point_1_id" ng-model="vm.vng.eline.connect_point_1_id">
     </div>
     <div class="form-group">
       <label for="cpi2">Connect point 2 ID</label>
-      <input required class="form-control" id="cpi2" type="text" ng-value="vm.eng.eline.connect_point_2_id" ng-model="vm.eng.eline.connect_point_2_id">
+      <input required class="form-control" id="cpi2" type="text" ng-value="vm.vng.eline.connect_point_2_id" ng-model="vm.vng.eline.connect_point_2_id">
     </div>
     <div class="form-group">
       <label for="bwps">Bandwidth Profile</label>
       <select required class="form-control"
               id="bwps"
-              ng-model="vm.eng.eline.bwp"
-              ng-options="bwp.name as bwp.name for bwp in vm.eng.bwps | orderBy:'name'"
+              ng-model="vm.vng.eline.bwp"
+              ng-options="bwp.name as bwp.name for bwp in vm.vng.bwps | orderBy:'name'"
       >
       </select>
     </div>
     <div class="form-group">
       <label for="sitename">CORD Site Name</label>
-      <input required class="form-control" id="sitename" type="text" ng-value="vm.eng.eline.cord_site_name" ng-model="vm.eng.eline.cord_site_name">
+      <input required class="form-control" id="sitename" type="text" ng-value="vm.vng.eline.cord_site_name" ng-model="vm.vng.eline.cord_site_name">
     </div>
     <div class="form-group">
       <label for="vlanids">Vlan IDs</label>
-      <input required class="form-control" id="vlanids" type="text" ng-value="vm.eng.eline.vlanids" ng-model="vm.eng.eline.vlanids">
+      <input required class="form-control" id="vlanids" type="text" ng-value="vm.vng.eline.vlanids" ng-model="vm.vng.eline.vlanids">
     </div>
     <div class="form-group" style="text-align: center">
       <button type="submit" class="btn btn-success btn-block">Save Changes</button>
     </div>
   </form>
-  <button type="button" class="btn btn-danger btn-block" ng-click="vm.eng.elinePanel({}, vm.eng.eline, false)">Close</button>
-  <button type="button" class="btn btn-danger delete-eline" ng-click="vm.deleteEline(vm.eng.eline)">Delete Eline</button>
+  <button type="button" class="btn btn-danger btn-block" ng-click="vm.deleteEline(vm.vng.eline)" ng-hide="vm.vng.createMode">Delete Eline</button>
 </div>
