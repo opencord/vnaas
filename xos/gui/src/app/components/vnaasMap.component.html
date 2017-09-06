@@ -21,26 +21,24 @@ limitations under the License.
     <h1>Enterprise Network Map</h1>
     <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3rQOp26I5a21VQhwLal8Z1x3XGHjXfm4">
       <ng-map
-        default-style="false"
-        id="foobar"
-        center="0,0"
-        disable-default-u-i="true"
-        map-type-id="ROADMAP"
-        zoom-control="true"
-        min-zoom="2"
-        styles="{{vm.mapStyles}}"
+              default-style="false"
+              id="foobar"
+              center="0,0"
+              disable-default-u-i="true"
+              map-type-id="ROADMAP"
+              zoom-control="true"
+              min-zoom="2"
+              styles="{{vm.mapStyles}}"
       >
-        <!--Markers-->
+
         <marker
-          ng-repeat="uni in vm.unis"
-          id="marker-{{uni.id}}"
-          position="{{uni.latlng.toString()}}"
-          icon="{{vm.MapConfig.marker}}"
-          on-click="vm.showUni(uni)"
+                ng-repeat="uni in vm.unis"
+                id="marker-{{uni.id}}"
+                position="{{uni.latlng.toString()}}"
+                icon="{{vm.MapConfig.marker}}"
+                on-click="vm.showUni(uni)"
         >
         </marker>
-
-        <!--Marker Info Window-->
 
         <info-window id = "uni-info">
           <div class = "marker-info">
@@ -55,17 +53,15 @@ limitations under the License.
           </div>
         </info-window>
 
-        <!--Connections-->
-
         <shape
-          ng-repeat="eline in vm.elines"
-          name="polyline"
-          id="eline-{{eline.id}}"
-          path="{{eline.path}}"
-          stroke-color="{{vm.colorLine(eline.backend_status)}}"
-          stroke-opacity="1.0"
-          stroke-weight="5"
-          on-click="vm.elinePanel({{eline}}, true)"
+                ng-repeat="eline in vm.elines"
+                name="polyline"
+                id="eline-{{eline.id}}"
+                path="{{eline.path}}"
+                stroke-color="{{vm.colorLine(eline.backend_status)}}"
+                stroke-opacity="1.0"
+                stroke-weight="5"
+                on-click="vm.elinePanel({{eline}}, true)"
         >
         </shape>
 
@@ -75,4 +71,3 @@ limitations under the License.
     Changes may not display until page refresh.
   </div>
 </div>
-<!--"https://maps.googleapis.com/maps/api/js?key=AIzaSyA3rQOp26I5a21VQhwLal8Z1x3XGHjXfm4"-->

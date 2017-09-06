@@ -7,7 +7,7 @@ you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
 http://www.apache.org/licenses/LICENSE-2.0
-
+xz
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,7 +15,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<div class = "elinepanel">
+<div class="elinepanel">
+  <div class="text-right">
+    <a href ng-click="vm.eng.elinePanel({}, vm.eng.eline, false)">
+      <i class="fa fa-remove" style="color:#fff;"></i>
+    </a>
+  </div>
   <h1>ELine Overview</h1>
   <form ng-submit="vm.saveEline(vm.eng.eline)">
     <div class="form-group" ng-hide="vm.eng.createMode">
@@ -59,6 +64,5 @@ limitations under the License.
       <button type="submit" class="btn btn-success btn-block">Save Changes</button>
     </div>
   </form>
-  <button type="button" class="btn btn-danger btn-block" ng-click="vm.eng.elinePanel({}, vm.eng.eline, false)">Close</button>
-  <button type="button" class="btn btn-danger delete-eline" ng-click="vm.deleteEline(vm.eng.eline)">Delete Eline</button>
+  <button type="button" class="btn btn-danger btn-block" ng-click="vm.deleteEline(vm.eng.eline)" ng-hide="vm.eng.createMode">Delete Eline</button>
 </div>
