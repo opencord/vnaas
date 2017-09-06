@@ -24,7 +24,7 @@ declare var google;
 
 let self;
 
-export class EngMap {
+export class VnaasMap {
 
   static $inject = [
     'NgMap',
@@ -140,14 +140,14 @@ export class EngMap {
     self.map.showInfoWindow('uni-info', this);
   }
 
-  // do not display backend status or ID in create mode
-
+  // fix this function!
   public elinePanel(e: any, eline: any, exists: boolean) {
+
     self.panelOpen = !self.panelOpen;
     if (exists) {
       self.eline = _.find(self.elines, {id: eline.id});
     }
-    self.XosSidePanel.toggleComponent('elineSide', {eline: self.eline, bwplist: self.bwps, eng: self}, false);
+    self.XosSidePanel.toggleComponent('elineSide', {vng: self}, false);
     if (!self.panelOpen && self.createMode) {
       self.createMode = false;
       self.canCreateEline = true;
@@ -191,8 +191,8 @@ export class EngMap {
 
 }
 
-export const engMap: angular.IComponentOptions = {
-  template: require('./engMap.component.html'),
+export const vnaasMap: angular.IComponentOptions = {
+  template: require('./vnaasMap.component.html'),
   controllerAs: 'vm',
-  controller: EngMap,
+  controller: VnaasMap,
 };

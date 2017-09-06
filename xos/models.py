@@ -16,7 +16,7 @@
 
 from header import *
 
-from core.models import Tenant
+from core.models import Tenant, XOSBase
 
 
 class EnterpriseLocation(Tenant):
