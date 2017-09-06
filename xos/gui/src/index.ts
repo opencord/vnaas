@@ -26,16 +26,16 @@ import 'angular-cookies';
 import 'ngmap';
 
 import routesConfig from './routes';
-import {engMap} from './app/components/engMap.component';
+import {vnaasMap} from './app/components/vnaasMap.component';
 import {elineSide} from './app/components/eline-side.component';
 
 angular.module('vnaasgui', [
-    'ui.router',
-    'app',
-    'ngMap'
-  ])
+  'ui.router',
+  'app',
+  'ngMap'
+])
   .config(routesConfig)
-  .component('engMap', engMap)
+  .component('vnaasMap', vnaasMap)
   .component('elineSide', elineSide)
   .run(function(
     $log: ng.ILogService,
@@ -45,7 +45,7 @@ angular.module('vnaasgui', [
     $log.info('[vnaasgui] App is running');
 
     XosNavigationService.add({
-      label: 'vNaaS GUI',
+      label: 'VNaaS GUI',
       state: 'xos.vnaasgui',
     });
 
