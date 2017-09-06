@@ -30,7 +30,7 @@ limitations under the License.
         min-zoom="2"
         styles="{{vm.mapStyles}}"
       >
-        <!--Markers-->
+
         <marker
           ng-repeat="uni in vm.unis"
           id="marker-{{uni.id}}"
@@ -39,8 +39,6 @@ limitations under the License.
           on-click="vm.showUni(uni)"
         >
         </marker>
-
-        <!--Marker Info Window-->
 
         <info-window id = "uni-info">
           <div class = "marker-info">
@@ -54,8 +52,6 @@ limitations under the License.
             <button ng-show="!vm.canCreateEline && !uni.eline_start" ng-click="vm.finishConnection(vm.current_uni)">Finish connection</button>
           </div>
         </info-window>
-
-        <!--Connections-->
 
         <shape
           ng-repeat="eline in vm.elines"
@@ -75,4 +71,3 @@ limitations under the License.
     Changes may not display until page refresh.
   </div>
 </div>
-<!--"https://maps.googleapis.com/maps/api/js?key=AIzaSyA3rQOp26I5a21VQhwLal8Z1x3XGHjXfm4"-->
