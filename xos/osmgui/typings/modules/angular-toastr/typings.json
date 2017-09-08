@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/61fa2391a46bdd00f5b8c03f0efe8dc164e8e26c/angular-toastr/index.d.ts",
+    "raw": "registry:dt/angular-toastr#1.6.0+20160708003927",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/61fa2391a46bdd00f5b8c03f0efe8dc164e8e26c/angular-toastr/index.d.ts"
+  }
+}
