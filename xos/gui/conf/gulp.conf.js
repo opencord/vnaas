@@ -25,7 +25,7 @@ exports.ngModule = 'app';
 
 exports.paths = {
   src: 'src',
-  dist: 'dist/extensions/vnaasgui',
+  dist: 'dist/extensions/vnaas',
   appConfig: 'conf/app',
   tmp: '.tmp',
   e2e: 'e2e',
