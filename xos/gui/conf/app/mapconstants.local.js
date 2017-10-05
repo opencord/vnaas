@@ -18,5 +18,5 @@
 
 angular.module('app')
   .constant('MapConfig', {
-    marker: './xos/extensions/vnaasgui/app/img/co.png',
+    marker: './xos/extensions/vnaas/app/img/co.png',
   });
