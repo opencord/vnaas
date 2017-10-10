@@ -34,6 +34,24 @@
       "revId": "954c1fe48b949bfdf8533859d13dcbca6a36e4bc",
       "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_13ad0232",
+        "filename": "xos/synchronizer/steps/sync_vnaaseline.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2017-10-10T23:44:45Z",
+      "side": 1,
+      "message": "Will add a FIXME and a Jira ticket.",
+      "parentUuid": "9a5c5d37_53a49a56",
+      "revId": "954c1fe48b949bfdf8533859d13dcbca6a36e4bc",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
     }
   ]
 }
