@@ -16,6 +16,24 @@
       "revId": "954c1fe48b949bfdf8533859d13dcbca6a36e4bc",
       "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_53a49a56",
+        "filename": "xos/synchronizer/steps/sync_vnaaseline.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2017-10-10T22:50:30Z",
+      "side": 1,
+      "message": "Should we add a FIXME in there or track with Jira ticket ?",
+      "parentUuid": "9a5c5d37_f376ee05",
+      "revId": "954c1fe48b949bfdf8533859d13dcbca6a36e4bc",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
     }
   ]
 }
