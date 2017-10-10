@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a5c5d37_f376ee05",
+        "filename": "xos/synchronizer/steps/sync_vnaaseline.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000029
+      },
+      "writtenOn": "2017-10-10T22:15:54Z",
+      "side": 1,
+      "message": "need to make a mental note that we revert this after fixing the ONOS CE app",
+      "revId": "954c1fe48b949bfdf8533859d13dcbca6a36e4bc",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
