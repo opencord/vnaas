@@ -42,7 +42,7 @@ class SyncvNaaSEline(SyncStep):
     def get_onos_global_addr(self, onos):
         #Fetching ip and port from the Global ONOS, append the CE specif API
 
-        onos_url = "http://%s:%s/onos/" % (onos.onos_ip, onos.onos_port)
+        onos_url = "http://%s:%s/" % (onos.onos_ip, onos.onos_port)
         evc_endpoint = "carrierethernet/evc"
         return onos_url + evc_endpoint
 
@@ -78,7 +78,7 @@ class SyncvNaaSEline(SyncStep):
         data["evcCfgId"] = evc.name
         data["uniList"] = [evc.connect_point_1_id, evc.connect_point_2_id]
         data["evcType"] = "POINT_TO_POINT"
-        data["vlanId"] = evc.vlanids.split(",")
+        data["vlanId"] = int(evc.vlanids.split(",")[0]) # FIXME - should be list (CORD-2075)
         data["cbs"] = bwp.cbs
         data["ebs"] = bwp.ebs
         data["cir"] = bwp.cir
