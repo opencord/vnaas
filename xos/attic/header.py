@@ -19,9 +19,4 @@ from core.models import Service
 from core.models import XOSBase
 from core.models import Site
 
-VNAAS_KIND = "vnaas"
-SERVICE_NAME = 'vnaas'
-SERVICE_NAME_ELINE_VERBOSE = 'E-Line Service'
-SERVICE_NAME_ELAN_VERBOSE = 'E-LAN Service'
-SERVICE_NAME_ETREE_VERBOSE = 'E-Tree Service'
 
