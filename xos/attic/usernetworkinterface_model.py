@@ -14,9 +14,7 @@
 # limitations under the License.
 
 
-def __unicode__(self):  return u'%s' % (self.name)
-
-def save(self, *args, **kwargs):
+def __xos_save_base(self, *args, **kwargs):
 
     if self.latlng:
         try:
@@ -33,4 +31,5 @@ def save(self, *args, **kwargs):
         except:
             raise ValueError("The lat/lng value is not formatted correctly.")
 
-    super(UserNetworkInterface, self).save(*args, **kwargs)
+    return False # let xosbase know to save the model
+

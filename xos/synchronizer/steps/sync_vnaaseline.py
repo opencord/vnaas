@@ -20,10 +20,10 @@ import requests
 import json
 from synchronizers.new_base.syncstep import SyncStep
 from synchronizers.new_base.modelaccessor import *
-#from xos.logger import Logger, logging
+from xos.logger import Logger, logging
 
 from requests.auth import HTTPBasicAuth
-#logger = Logger(level=logging.INFO)
+logger = Logger(level=logging.INFO)
 
 parentdir = os.path.join(os.path.dirname(__file__), "..")
 sys.path.insert(0, parentdir)
@@ -52,8 +52,9 @@ class SyncvNaaSEline(SyncStep):
         return HTTPBasicAuth(onos.onos_username, onos.onos_password)
 
     def sync_record(self, evc):
-        print "POST %s " % (evc)
-        #logger.info("Syncing Edited EVC: %s" % evc.name)
+        logger.info("Syncing Edited EVC: %s" % evc.name)
+        logger.info("POST %s " % (evc))
+
         # Fetch the bwp from the DB
         bwp = BandwidthProfile.objects.get(name=evc.bwp)
 
@@ -83,7 +84,7 @@ class SyncvNaaSEline(SyncStep):
         data["ebs"] = bwp.ebs
         data["cir"] = bwp.cir
         data["eir"] = bwp.eir
-        print "data %s" % data
+        logger.info("data %s" % data)
         # assuming that the CPEs are controller by the fabric ONOS
         onos = OnosModel.objects.get(onos_type="global")
         onos_addr = self.get_onos_global_addr(onos)
@@ -91,15 +92,14 @@ class SyncvNaaSEline(SyncStep):
         # FIXME - hardcoded auth
         auth = self.get_onos_global_auth(onos)
 
-        print "POST %s for app %s, data = %s" % (onos_addr, evc.name, data)
+        logger.info("POST %s for app %s, data = %s" % (onos_addr, evc.name, data))
 
         r = requests.post(onos_addr, data=json.dumps(data), auth=auth)
         #TODO XOS might fail to connect to ONOS.
         if (r.status_code != 200):
-            print r
+            logger.info("result = %s" % r)
             raise Exception("Received error from EVC Installation update (%d)" % r.status_code)
 
     def delete_record(self, evc):
         # TODO evaluate what to in this case.
-        print "Syncing delete EVC: %s" % evc.name
-        #logger.info("Syncing delete EVC: %s" % evc.name)
+        logger.info("Syncing delete EVC: %s" % evc.name)
