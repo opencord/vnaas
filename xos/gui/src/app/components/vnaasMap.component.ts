@@ -140,12 +140,11 @@ export class VnaasMap {
     self.map.showInfoWindow('uni-info', this);
   }
 
-  // fix this function!
-  public elinePanel(e: any, eline: any, exists: boolean) {
+  public elinePanel(e: any, elineid: any, exists: boolean) {
 
     self.panelOpen = !self.panelOpen;
     if (exists) {
-      self.eline = _.find(self.elines, {id: eline.id});
+      self.eline = _.find(self.elines, {id: elineid});
     }
     self.XosSidePanel.toggleComponent('elineSide', {vng: self}, false);
     if (!self.panelOpen && self.createMode) {

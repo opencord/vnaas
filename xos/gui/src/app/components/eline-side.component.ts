@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+import * as _ from 'lodash';
+
 
 let self;
 
