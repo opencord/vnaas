@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a8b39a1_c2339675",
+        "filename": "xos/synchronizer/steps/sync_vnaaseline.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000029
+      },
+      "writtenOn": "2017-11-17T01:08:56Z",
+      "side": 1,
+      "message": "spaces please",
+      "revId": "18e473c8eea3953a2f4dc0fc00186f65c7c7f4ea",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
