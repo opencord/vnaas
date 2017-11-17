@@ -48,12 +48,13 @@ message BandwidthProfile (XOSBase){
 
 message ELine (XOSBase){
      option verbose_name = "Ethernet Virtual Private Line";
+     option plural = "Elines";
 
      required string name = 1 [help_text = "Name for this ELine", db_index = False, max_length = 256, null = False, blank = False];
-     required string connect_point_1_id = 2 [help_text = "Cpe_id of the first connection point", db_index = False, max_length = 256, null = False, blank = False];
-     required string connect_point_2_id = 3 [help_text = "Cpe_id of the second connection point", db_index = False, max_length = 64, null = False, blank = False];
+     required manytoone connect_point_1->UserNetworkInterface:incoming_eline = 2 [help_text = "Cpe_id of the first connection point", db_index = False, max_length = 256, null = False, blank = False];
+     required manytoone connect_point_2->UserNetworkInterface:outgoing_eline = 3 [help_text = "Cpe_id of the second connection point", db_index = False, max_length = 64, null = False, blank = False];
      required string vlanids = 4 [help_text = "Comma separated list of vlanIds", db_index = False, null = False, blank = False];
      required string cord_site_name = 5 [help_text = "Name of the CORD site", db_index = False, max_length = 64, null = False, blank = False];
-     required string bwp  = 6 [help_text = "Bandwidth profile name", db_index = False, max_length = 256, null = False, blank = False];
+     required manytoone bwp->BandwidthProfile:elines  = 6 [help_text = "Bandwidth profile name", db_index = False, max_length = 256, null = False, blank = False];
 
 }
