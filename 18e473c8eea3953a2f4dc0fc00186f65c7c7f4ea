@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "952a9d6c_1630a08a",
+        "filename": "xos/synchronizer/steps/sync_vnaaseline.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000007
+      },
+      "writtenOn": "2017-11-18T00:18:21Z",
+      "side": 1,
+      "message": "This does not look hardcoded",
+      "range": {
+        "startLine": 109,
+        "startChar": 8,
+        "endLine": 109,
+        "endChar": 32
+      },
+      "revId": "18e473c8eea3953a2f4dc0fc00186f65c7c7f4ea",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a8b39a1_c2339675",
         "filename": "xos/synchronizer/steps/sync_vnaaseline.py",
         "patchSetId": 2
