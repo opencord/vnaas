@@ -89,17 +89,33 @@ class SyncvNaaSEline(SyncStep):
         onos = OnosModel.objects.get(onos_type="global")
         onos_addr = self.get_onos_global_addr(onos)
 
-        # FIXME - hardcoded auth
         auth = self.get_onos_global_auth(onos)
 
-        logger.info("POST %s for app %s, data = %s" % (onos_addr, evc.name, data))
+        logger.info("POST %s for evc %s, data = %s" % (onos_addr, evc.name, data))
 
         r = requests.post(onos_addr, data=json.dumps(data), auth=auth)
+
         #TODO XOS might fail to connect to ONOS.
         if (r.status_code != 200):
             logger.info("result = %s" % r)
             raise Exception("Received error from EVC Installation update (%d)" % r.status_code)
 
     def delete_record(self, evc):
-        # TODO evaluate what to in this case.
         logger.info("Syncing delete EVC: %s" % evc.name)
+
+        onos = OnosModel.objects.get(onos_type="global")
+        onos_addr = self.get_onos_global_addr(onos)
+
+        auth = self.get_onos_global_auth(onos)
+
+        logger.info("Delete %s for evc %s" % (onos_addr, evc.name))
+
+        data = {}
+        data['evcId'] = evc.name
+
+        r = requests.delete(onos_addr + "/" + evc.name, auth=auth)
+
+        # TODO XOS might fail to connect to ONOS.
+        if (r.status_code != 200):
+            logger.info("result = %s" % r)
+            raise Exception("Received error from EVC Removal update (%d)" % r.status_code)
