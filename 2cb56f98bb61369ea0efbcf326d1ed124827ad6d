@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ad8bbdd_f86a0bbe",
+        "filename": "xos/synchronizer/steps/test_sync_vnaaseline.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2017-11-30T18:46:32Z",
+      "side": 1,
+      "message": "please use data from https://github.com/opencord/ecord/blob/master/examples/vnaasglobal-service-reference.yaml\n\nI also suggest putting these elements as constants so we make sure to check equality later at line 106-114",
+      "range": {
+        "startLine": 63,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 38
+      },
+      "revId": "2cb56f98bb61369ea0efbcf326d1ed124827ad6d",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
