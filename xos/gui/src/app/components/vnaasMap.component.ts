@@ -164,7 +164,7 @@ export class VnaasMap {
       self.eline = {
         name: uni.name,
         uni1name: uni.name,
-        connect_point_1_id: uni.cpe_id,
+        connect_point_1_id: uni.id
       };
       self.elinePanel({}, self.eline, false);
     };
@@ -172,7 +172,7 @@ export class VnaasMap {
   }
 
   public finishConnection(uni: any) {
-    self.eline.connect_point_2_id = uni.cpe_id;
+    self.eline.connect_point_2_id = uni.id;
     if (self.eline.name === self.eline.uni1name) {
       self.eline.name = self.eline.name + uni.name;
     }

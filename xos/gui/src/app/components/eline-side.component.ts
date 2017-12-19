@@ -35,9 +35,15 @@ class ElineSide {
 
   public saveEline(item: any) {
     let path = item.path;
+    let cp1 = item.connect_point_1_id;
+    let cp2 = item.connect_point_2_id;
     delete item.path;
+    item.connect_point_1_id = cp1[0];
+    item.connect_point_2_id = cp2[0];
     item.$save().then((res) => {
       item.path = path;
+      item.connect_point_1_id = cp1;
+      item.connect_point_2_id = cp2;
       this.toastr.success(`${item.name} successfully saved!`);
     })
       .catch((error) => {
