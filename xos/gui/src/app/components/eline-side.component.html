@@ -37,18 +37,28 @@ limitations under the License.
     </div>
     <div class="form-group">
       <label for="cpi1">Connect point 1 ID</label>
-      <input required class="form-control" id="cpi1" type="text" ng-value="vm.vng.eline.connect_point_1_id" ng-model="vm.vng.eline.connect_point_1_id">
+      <select required class="form-control"
+              id="cpi1"
+              ng-model="vm.vng.eline.connect_point_1_id"
+              ng-options="uni.id as uni.cpe_id for uni in vm.vng.unis  | orderBy:'cpe_id'"
+      >
+      </select>
     </div>
     <div class="form-group">
       <label for="cpi2">Connect point 2 ID</label>
-      <input required class="form-control" id="cpi2" type="text" ng-value="vm.vng.eline.connect_point_2_id" ng-model="vm.vng.eline.connect_point_2_id">
+      <select required class="form-control"
+              id="cpi2"
+              ng-model="vm.vng.eline.connect_point_2_id"
+              ng-options="uni.id as uni.cpe_id for uni in vm.vng.unis | orderBy:'cpe_id'"
+      >
+      </select>
     </div>
     <div class="form-group">
       <label for="bwps">Bandwidth Profile</label>
       <select required class="form-control"
               id="bwps"
-              ng-model="vm.vng.eline.bwp"
-              ng-options="bwp.name as bwp.name for bwp in vm.vng.bwps | orderBy:'name'"
+              ng-model="vm.vng.eline.bwp_id"
+              ng-options="bwp.id as bwp.name for bwp in vm.vng.bwps | orderBy:'name'"
       >
       </select>
     </div>
