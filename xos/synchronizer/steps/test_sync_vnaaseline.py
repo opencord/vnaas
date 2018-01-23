@@ -41,16 +41,18 @@ BWP_GOLD_CIR = 20000
 BWP_GOLD_EIR = 5000
 BWP_GOLD_NAME = "gold"
 
+CONNECT_POINT_1_TENANT = "onf"
+CONNECT_POINT_1_NAME = "uni1"
+CONNECT_POINT_1_LATLNG = "[37.973535, -122.531087]"
+CONNECT_POINT_1_CPE_ID = "domain:10.90.1.30-cord-onos/1"
+
+CONNECT_POINT_2_TENANT = "onf"
+CONNECT_POINT_2_NAME = "uni2"
+CONNECT_POINT_2_LATLNG = "[37.773972, -122.431297]"
+CONNECT_POINT_2_CPE_ID = "domain:10.90.1.30-cord-onos/1"
+
 ELINE_VLANIDS = "100"
-ELINE_CONNECT_POINT_1_ID = "domain:10.90.1.30-cord-onos/1"
-ELINE_CONNECT_POINT_2_ID = "domain:10.90.1.50-cord-onos/1"
 ELINE_NAME = "testeline"
-
-UNI_TENANT = "onf"
-UNI_NAME = "onf"
-UNI_LATLNG = [37.773972, -122.431297]
-UNI_CPE_ID = "netconf:192.168.56.20:830/0"
-
 
 class TestSyncvNaaSEline(unittest.TestCase):
     def setUp(self):
@@ -96,17 +98,21 @@ class TestSyncvNaaSEline(unittest.TestCase):
                                                  cir=BWP_GOLD_CIR,
                                                  eir=BWP_GOLD_EIR,
                                                  name=BWP_GOLD_NAME)
-        self.userNetworkInterface = UserNetworkInterface(tenant=UNI_TENANT,
-                                                         name=UNI_NAME,
-                                                         latlng=UNI_LATLNG,
-                                                         cpe_id=UNI_CPE_ID)
+        self.connect_point_1 = UserNetworkInterface(tenant=CONNECT_POINT_1_TENANT,
+                                                         name=CONNECT_POINT_1_NAME,
+                                                         latlng=CONNECT_POINT_1_LATLNG,
+                                                         cpe_id=CONNECT_POINT_1_CPE_ID)
+        self.connect_point_2 = UserNetworkInterface(tenant=CONNECT_POINT_2_TENANT,
+                                                         name=CONNECT_POINT_2_NAME,
+                                                         latlng=CONNECT_POINT_2_LATLNG,
+                                                         cpe_id=CONNECT_POINT_2_CPE_ID)
 
         self.eline = ELine(name=ELINE_NAME,
-                           connect_point_1_id=ELINE_CONNECT_POINT_1_ID,
-                           connect_point_2_id=ELINE_CONNECT_POINT_2_ID,
+                           connect_point_1=self.connect_point_1,
+                           connect_point_2=self.connect_point_2,
                            vlanids=ELINE_VLANIDS,
                            cord_site_name=ONOS_NAME,
-                           bwp=BWP_GOLD_NAME)
+                           bwp=self.bandwidthProfile)
 
     def tearDown(self):
         sys.path = self.sys_path_save
@@ -131,7 +137,7 @@ class TestSyncvNaaSEline(unittest.TestCase):
             desired_attrs = {"evcCfgId": ELINE_NAME,
                              "eir": BWP_GOLD_EIR,
                              "cir": BWP_GOLD_CIR,
-                             "uniList": [ELINE_CONNECT_POINT_1_ID, ELINE_CONNECT_POINT_2_ID],
+                             "uniList": [CONNECT_POINT_1_CPE_ID, CONNECT_POINT_2_CPE_ID],
                              "ebs": BWP_GOLD_EBS,
                              "vlanId": int(ELINE_VLANIDS),
                              "cbs": BWP_GOLD_CBS,

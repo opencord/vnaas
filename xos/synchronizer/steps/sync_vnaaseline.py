@@ -55,9 +55,6 @@ class SyncvNaaSEline(SyncStep):
         logger.info("Syncing Edited EVC: %s" % evc.name)
         logger.info("POST %s " % (evc))
 
-        # Fetch the bwp from the DB
-        bwp = BandwidthProfile.objects.get(name=evc.bwp)
-
         # json to configure ONOS to start the EVC.
         # {
         #     "evcId": "evc1",
@@ -77,13 +74,13 @@ class SyncvNaaSEline(SyncStep):
         data = {}
         data["evcId"] = evc.name
         data["evcCfgId"] = evc.name
-        data["uniList"] = [evc.connect_point_1_id, evc.connect_point_2_id]
+        data["uniList"] = [evc.connect_point_1.cpe_id, evc.connect_point_2.cpe_id]
         data["evcType"] = "POINT_TO_POINT"
         data["vlanId"] = int(evc.vlanids.split(",")[0]) # FIXME - should be list (CORD-2075)
-        data["cbs"] = bwp.cbs
-        data["ebs"] = bwp.ebs
-        data["cir"] = bwp.cir
-        data["eir"] = bwp.eir
+        data["cbs"] = evc.bwp.cbs
+        data["ebs"] = evc.bwp.ebs
+        data["cir"] = evc.bwp.cir
+        data["eir"] = evc.bwp.eir
         logger.info("data %s" % data)
         # assuming that the CPEs are controller by the fabric ONOS
         onos = OnosModel.objects.get(onos_type="global")
