@@ -54,6 +54,18 @@ CONNECT_POINT_2_CPE_ID = "domain:10.90.1.30-cord-onos/1"
 ELINE_VLANIDS = "100"
 ELINE_NAME = "testeline"
 
+# While transitioning from static to dynamic load, the path to find neighboring xproto files has changed. So check
+# both possible locations...
+def get_models_fn(service_name, xproto_name):
+    name = os.path.join(service_name, "xos", xproto_name)
+    if os.path.exists(os.path.join(services_dir, name)):
+        return name
+    else:
+        name = os.path.join(service_name, "xos", "synchronizer", "models", xproto_name)
+        if os.path.exists(os.path.join(services_dir, name)):
+            return name
+    raise Exception("Unable to find service=%s xproto=%s" % (service_name, xproto_name))
+
 class TestSyncvNaaSEline(unittest.TestCase):
     def setUp(self):
         global SyncvNaaSEline, MockObjectList
@@ -68,7 +80,7 @@ class TestSyncvNaaSEline(unittest.TestCase):
         Config.init(config, 'synchronizer-config-schema.yaml')
 
         from synchronizers.new_base.mock_modelaccessor_build import build_mock_modelaccessor
-        build_mock_modelaccessor(xos_dir, services_dir, ["vnaas/xos/vnaas.xproto"])
+        build_mock_modelaccessor(xos_dir, services_dir, [get_models_fn("vnaas", "vnaas.xproto")])
 
         import synchronizers.new_base.modelaccessor
         import synchronizers.new_base.model_policies.model_policy_tenantwithcontainer
