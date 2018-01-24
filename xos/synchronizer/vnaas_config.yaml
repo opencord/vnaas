@@ -12,10 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: vnaas-synchronizer
+name: vnaas
 accessor:
   username: xosadmin@opencord.org
   password: "@/opt/xos/services/vnaas/credentials/xosadmin@opencord.org"
+required_models:
+  - ELine
+  - BandwidthProfile
+  - UserNetworkInterface
+  - OnosModel
+  - EnterpriseLocation
 dependency_graph: "/opt/xos/synchronizers/vnaas/model-deps"
 steps_dir: "/opt/xos/synchronizers/vnaas/steps"
 sys_dir: "/opt/xos/synchronizers/vnaas/sys"
+models_dir: "/opt/xos/synchronizers/vnaas/models"
