@@ -1,5 +1,6 @@
 option name = "vnaas";
 option app_label = "vnaas";
+option legacy = "True";
 
 message EnterpriseLocation (XOSBase){
      option verbose_name = "Enterprise Location";
