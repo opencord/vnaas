@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b8bef84_70a7b046",
+        "filename": "xos/synchronizer/models/vnaas.xproto",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2018-03-01T08:38:51Z",
+      "side": 1,
+      "message": "what does this mean ?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 23
+      },
+      "revId": "ef14f725553df8916ee9ba527d900e7df179be98",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
