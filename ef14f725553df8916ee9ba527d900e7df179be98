@@ -46,6 +46,30 @@
       "revId": "ef14f725553df8916ee9ba527d900e7df179be98",
       "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fb539a4_86c50b56",
+        "filename": "xos/synchronizer/models/vnaas.xproto",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2018-03-01T17:40:43Z",
+      "side": 1,
+      "message": "shouldn\u0027t than it be False since we are removing the attic in the patch ?",
+      "parentUuid": "096c89f3_17f88204",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 23
+      },
+      "revId": "ef14f725553df8916ee9ba527d900e7df179be98",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
     }
   ]
 }
