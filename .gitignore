@@ -2,3 +2,11 @@
 *.DS_Store
 node_modules/
 *.log
+
+*.pyc
+
+.coverage
+htmlcov
+coverage.xml
+nose2-junit.xml
+
